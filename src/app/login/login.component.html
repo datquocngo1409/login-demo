@@ -1,0 +1,34 @@
+
+<div style="height: 300px;" [hidden]="logined">
+
+</div>
+
+<div class="container" [hidden]="logined">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="border border-secondary" style="background-color: azure">
+        <h3 style="text-align: center">Đăng nhập</h3>
+        <table [hidden]="logined" class="table">
+          <tr>
+            <th>Username:</th>
+            <th><input [(ngModel)]="usernameLogin" placeholder="Username" name="username"></th>
+          </tr>
+          <tr>
+            <th>Password</th>
+            <th><input type="password" [(ngModel)]="passwordLogin" placeholder="*********" name="password"></th>
+          </tr>
+          <tr>
+            <th></th>
+            <th><button (click)="login()">Login</button></th>
+          </tr>
+        </table>
+        <h4 style="color: red; text-align: center" *ngIf="!logined && click">Đăng nhập thất bại!</h4>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+<div [hidden]="finishLogin">
+  <button [hidden]="!logined"><a routerLink="{{linkHome}}" (click)="finishLogin = ! finishLogin">Go to Home Page</a></button>
+</div>
